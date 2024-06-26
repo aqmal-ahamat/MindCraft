@@ -154,7 +154,7 @@ body{
         animation: moveBackground 30s ;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
-    }/*
+    }
     #heading{
         color: white;
     }
@@ -181,5 +181,5 @@ body{
     }
     #logo{
         display: none;
-    }*/
+    }
 }
