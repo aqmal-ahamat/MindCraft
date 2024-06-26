@@ -148,10 +148,38 @@ body{
 @media screen and (max-width:700px){
     #login-section{
         background-color: transparent;
+        width: 200px;
     }
     body{
         animation: moveBackground 30s ;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
+    }
+    #heading{
+        color: white;
+    }
+    .input{
+        width: 200px;
+        height: 40px;
+    }
+    #Remember{
+        color: white;
+    }
+    #submit{
+        background-color: white;
+        color: var(--main-color);
+        height: 40px;
+    }
+    #submit:hover{
+        background-color: var(--secondary-color);
+        color: white;
+        transform: scale(100%,100%);
+        
+    }
+    #bottom-text, #bottom-text a{
+        color: white;
+    }
+    #logo{
+        display: none;
     }
 }
