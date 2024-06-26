@@ -1,0 +1,16 @@
+{
+    "name": "MindCraft",
+    "short_name": "MindCraft",
+    "description": "A simple web application. that helps to track habits",
+    "start_url": "/login.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0F1035",
+    "icons": [
+      {
+        "src": "images/logo 2.png",
+        "sizes": "500x500",
+        "type": "image/png"
+      }
+    ]
+  }
