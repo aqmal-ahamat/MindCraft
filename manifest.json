@@ -2,7 +2,7 @@
     "name": "MindCraft",
     "short_name": "MindCraft",
     "description": "A simple web application. that helps to track habits",
-    "start_url": "/index.html",
+    "start_url": "index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#0F1035",
