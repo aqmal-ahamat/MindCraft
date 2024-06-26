@@ -145,10 +145,10 @@ body{
 
 
 
-@media screen and (max-width:700px){
+@media screen and (max-width:750px){
     #login-section{
         background-color: transparent;
-        width: 200px;
+        width: 250px;
     }
     body{
         animation: moveBackground 30s ;
@@ -159,7 +159,7 @@ body{
         color: white;
     }
     .input{
-        width: 200px;
+        width: 250px;
         height: 40px;
     }
     #Remember{
@@ -169,6 +169,7 @@ body{
         background-color: white;
         color: var(--main-color);
         height: 40px;
+        font-size: 15px;
     }
     #submit:hover{
         background-color: var(--secondary-color);
@@ -177,6 +178,7 @@ body{
         
     }
     #bottom-text, #bottom-text a{
+        display: block;
         color: white;
     }
     #logo{
