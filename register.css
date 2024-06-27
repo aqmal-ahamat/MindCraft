@@ -1,0 +1,157 @@
+:root{
+    --main-color:#0F1035;
+    --secondary-color:#0B60B0;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:"nunito" ;
+  
+    
+}
+
+body{
+    background-image: url("images/login desktop background.webp");
+    display: flex;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    
+    animation: moveBackground 10s ;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    
+    
+    
+}
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+    
+    50%{
+        background-position: 100% 100%;
+    }
+    
+    100% {
+        background-position: 0% 0%;
+    }
+}
+#register-section {
+    position: relative;
+    width: 450px;
+    height: 500px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--main-color);
+    
+
+}
+#logo{
+    width: 100px;
+    position: absolute;
+    bottom: 25px;
+    
+    
+}
+#heading{
+    font-family: "nunito";
+    font-weight: 1000;
+    font-size: 40px;
+    text-align: center;
+    color: var(--main-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.input{
+    display: block;
+    font-family: "nunito";
+    font-size: 15px;
+    font-weight: 700;
+    
+    width:300px ;
+    margin-bottom: 20px;
+    height: 50px;
+    padding: 0 10px;
+    border-radius: 15px;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    
+}
+
+
+
+
+
+
+#submit{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: "nunito";
+    font-size: 20px;
+    font-weight: 700;
+    display: block;
+    width: 100%;
+    height: 50px;
+    border-radius: 15px;
+    background-color: var(--main-color);
+    color: white;
+    border: 0;
+}
+#submit:hover{
+    background-color: var(--secondary-color);
+    transform: scale(110%,110%);
+    transition: 0.25s;
+}
+#submit:active{
+    color: var(--secondary-color);
+    background-color: white;
+}
+
+
+
+
+@media screen and (max-width:750px){
+    #register-section{
+        background-color: transparent;
+        width: 250px;
+    }
+    body{
+        animation: moveBackground 30s ;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    #heading{
+        color: white;
+    }
+    .input{
+        width: 250px;
+        height: 40px;
+    }
+    
+    #submit{
+        background-color: white;
+        color: var(--main-color);
+        height: 40px;
+        font-size: 15px;
+    }
+    #submit:hover{
+        background-color: var(--secondary-color);
+        color: white;
+        transform: scale(100%,100%);
+        
+    }
+    
+    #logo{
+        display: none;
+    }
+}
