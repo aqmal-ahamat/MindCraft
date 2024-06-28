@@ -149,6 +149,7 @@ body{
     #login-section{
         background-color: transparent;
         width: 250px;
+        border: 0px;
     }
     body{
         animation: moveBackground 30s ;
