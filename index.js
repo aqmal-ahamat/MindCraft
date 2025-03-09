@@ -1,5 +1,18 @@
 console.log("something");
 
+const usernamefield = document.getElementById("username");
+const passwordfield = document.getElementById("password");
+const loginbutton = document.getElementById("submit");
+const errortext = document.getElementById("error");
+
+// -----------------------------------------------Variables---------------------------------------------------------------------------------------------------
+let username
+let password
+
+
+
+// -----------------------------------------------setting up firebase ---------------------------------------------------------------------------------------------------
+
 import {initializeApp} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
 import {getFirestore } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 import {collection, addDoc,setDoc,updateDoc,getDoc, doc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
@@ -17,6 +30,77 @@ const firebaseApp = initializeApp(
 )
 
 const database = getFirestore(firebaseApp);
+
+// -----------------------------------------------input validation ---------------------------------------------------------------------------------------------------
+function inputvalidaion(username, password){
+    if (username == "" || password == ""){
+        errortext.textContent = "Username or password cannot be empty"
+        
+        return false
+    }else{
+        errortext.textContent = ""
+        return true
+    }
+
+}
+
+// -----------------------------------------------datebase validation ---------------------------------------------------------------------------------------------------
+async function database_validation(username, password){
+    let users_passwords = await getDoc(doc(database, "systemDB", "Users"))
+    users_passwords = users_passwords.data()
+
+    
+    if ( users_passwords[username]==null){
+        errortext.textContent = "Invalid Username"
+        return false
+    }
+    else if(users_passwords[username]!=password){
+        errortext.textContent = "Wrong password";
+        return false
+    }
+    else{
+        errortext.textContent = ""
+        return true
+    }
+
+    
+
+
+}
+
+
+// -----------------------------------------------login function---------------------------------------------------------------------------------------------------
+
+function loginfunction(){
+    username = usernamefield.value
+    password = passwordfield.value
+
+    if (inputvalidaion(username, password)){
+            database_validation(username, password)
+    }
+
+
+}
+
+
+
+loginbutton.onclick = loginfunction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ADD A NEW DOCUMENT
 try{

@@ -18,11 +18,12 @@
             <p id="heading">Login</p>
             <article>
             <form action="">
-                <input type="text" class="input"name="username" placeholder="Username" required>
-                <input type="password" class="input"name="password" placeholder="Password" required>
-                <article>
+                <input type="text" class="input"name="username" placeholder="Username" id="username" required>
+                <input type="password" class="input"name="password" placeholder="Password" id="password" required>
+                <article id="remembermearticle">
                     <input type="checkbox" id="checkbox"><label for="checkbox" id="Remember">Remember me</label>
                 </article>
+                <p id="error"></p>
                 
                 <input  id="submit" value="Login">
             </form>
@@ -30,6 +31,7 @@
                 <label >Don't have an account? </label>
                 <a href="register.html">Register</a>
             </article>
+            
             
             </article>
             <img id="logo"  src="images\logo.png" alt="">

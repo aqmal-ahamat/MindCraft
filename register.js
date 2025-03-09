@@ -14,6 +14,7 @@ const errorelement = document.getElementById("error");
 let username;
 let password;
 let confpassword;
+let isNameValid;
 
 
 // -----------------------------------------------setting up firebase ---------------------------------------------------------------------------------------------------
@@ -54,7 +55,7 @@ function validate(p, confp, username){
     }
     
     else {
-        errorelement.textContent = ""
+        
         return true
     }
 
@@ -68,9 +69,9 @@ async function database_validation(uname){
     if (usernames.includes(uname)){
         
         errorelement.textContent = "Username already exists. Please login!"
-        return false
+        isNameValid = false
     }else{
-        return true
+        isNameValid = true
     }
 
 }
@@ -78,15 +79,16 @@ async function database_validation(uname){
 //---------------------------------------------------------------------------------Register User ----------------------------------------------------------------------------------------------
 async function registeruser(uname,password){
 
-    try{
+        
         const newDoc = await updateDoc(doc(database,"systemDB","Users"), {
          [uname] : password
          })
 
-        errorelement.textContent = "User successfully registered!"
-    }catch(error){
-        console.log(error)
-    }
+         errorelement.textContent = "User successfully registered!"
+
+        
+        
+    
 }
 
 //---------------------------------------------------------------------------------submit funtion----------------------------------------------------------------------------------------------
@@ -99,8 +101,9 @@ function sumbitfunc(){
     confpassword = confpasswordelement.value;
 
     if (validate(password, confpassword,username)){
-        if (database_validation(username)){
-           
+        
+        database_validation(username)
+        if(isNameValid){
             registeruser(username,password)
 
 

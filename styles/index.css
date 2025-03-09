@@ -102,26 +102,24 @@ body{
     text-align: center;
 }
 
-#bottom-text a{
+#bottom-text a {
     font-weight: 700;
     color: var(--main-color);
 }
-#bottom-text a:hover{
-    color: var(--secondary-color);
-    transform: scale(110%,110%);
-    transition: 0.25s;
-    
-}
-#bottom-text a:active{
-    color: white;
-    
+#remembermearticle{
+    margin-bottom: 20px;
 }
 
+#error {
+    text-align: center;
+    color: #B03052;
+    font-weight: 700;
+}
 
 #submit{
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     font-family: "nunito";
     font-size: 20px;
     font-weight: 700;
