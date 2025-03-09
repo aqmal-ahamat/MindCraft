@@ -73,11 +73,14 @@ async function database_validation(username, password){
 
 async function loginfunction(){
     username = usernamefield.value
+    
     password = passwordfield.value
+    
 
     if (inputvalidaion(username, password)){
         await database_validation(username, password)
             if(isDBvalid){
+                console.log("working")
                 localStorage.setItem("data",username)
                 window.location.href = "Dashboard.html";
 
@@ -89,7 +92,10 @@ async function loginfunction(){
 
 
 
-loginbutton.onclick = loginfunction
+loginbutton.addEventListener("click", function(event){
+    event.preventDefault()
+    loginfunction()
+})
 
 
 

@@ -100,7 +100,7 @@ async function registeruser(uname,password){
 
 
 
-async function sumbitfunc(){
+async function submitfunc(){
     username = usernameelement.value;
     password = passwordelement.value;
     confpassword = confpasswordelement.value;
@@ -119,7 +119,12 @@ async function sumbitfunc(){
 
 }
 
-submitbtn.onclick = sumbitfunc;
+
+
+submitbtn.addEventListener("click", function(event){
+    event.preventDefault()
+    submitfunc()
+})
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------
 
