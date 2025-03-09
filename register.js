@@ -40,6 +40,7 @@ const database = getFirestore(firebaseApp);
 
 //------------------------------------------------------------------Input validation------------------------------------------------------
 function validate(p, confp, username){
+    
     if (username == ''){
         errorelement.textContent = "Username cannot be empty"
         return false
@@ -49,19 +50,22 @@ function validate(p, confp, username){
         return false
 
     }
-    else if (p.length >10 || p.length <= 0){
-        errorelement.textContent = "password should be 1-10 characters"
+    else if (p.length >10 || p.length <= 4){
+        errorelement.textContent = "password should be 4-10 characters"
         return false
     }
     
     else {
-        
+        errorelement.textContent = ""
+
         return true
     }
 
 }
 //---------------------------------------------------------------------------------database validation----------------------------------------------------------------------------------------------
 async function database_validation(uname){
+        
+
     let usernames_passwords = await getDoc(doc(database, "systemDB", "Users"));
     let usernames_passwords_obj = usernames_passwords.data()
     let usernames = Object.keys(usernames_passwords_obj)
@@ -71,6 +75,7 @@ async function database_validation(uname){
         errorelement.textContent = "Username already exists. Please login!"
         isNameValid = false
     }else{
+        
         isNameValid = true
     }
 
@@ -84,7 +89,7 @@ async function registeruser(uname,password){
          [uname] : password
          })
 
-         errorelement.textContent = "User successfully registered!"
+         
 
         
         
@@ -95,15 +100,16 @@ async function registeruser(uname,password){
 
 
 
-function sumbitfunc(){
+async function sumbitfunc(){
     username = usernameelement.value;
     password = passwordelement.value;
     confpassword = confpasswordelement.value;
 
     if (validate(password, confpassword,username)){
         
-        database_validation(username)
+        await database_validation(username)
         if(isNameValid){
+            errorelement.textContent = "User successfully registered!"
             registeruser(username,password)
 
 

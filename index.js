@@ -8,6 +8,7 @@ const errortext = document.getElementById("error");
 // -----------------------------------------------Variables---------------------------------------------------------------------------------------------------
 let username
 let password
+let isDBvalid
 
 
 
@@ -52,15 +53,15 @@ async function database_validation(username, password){
     
     if ( users_passwords[username]==null){
         errortext.textContent = "Invalid Username"
-        return false
+        isDBvalid = false
     }
     else if(users_passwords[username]!=password){
         errortext.textContent = "Wrong password";
-        return false
+        isDBvalid = false
     }
     else{
         errortext.textContent = ""
-        return true
+        isDBvalid = true
     }
 
     
@@ -76,7 +77,11 @@ function loginfunction(){
     password = passwordfield.value
 
     if (inputvalidaion(username, password)){
-            database_validation(username, password)
+            if(database_validation(username, password)){
+                localStorage.setItem("data",[[username],[password]])
+                window.location.href = "Dashboard.html";
+
+            }
     }
 
 
