@@ -50,7 +50,6 @@ async function database_validation(username, password){
     let users_passwords = await getDoc(doc(database, "systemDB", "Users"))
     users_passwords = users_passwords.data()
 
-    
     if ( users_passwords[username]==null){
         errortext.textContent = "Invalid Username"
         isDBvalid = false
@@ -72,13 +71,14 @@ async function database_validation(username, password){
 
 // -----------------------------------------------login function---------------------------------------------------------------------------------------------------
 
-function loginfunction(){
+async function loginfunction(){
     username = usernamefield.value
     password = passwordfield.value
 
     if (inputvalidaion(username, password)){
-            if(database_validation(username, password)){
-                localStorage.setItem("data",[[username],[password]])
+        await database_validation(username, password)
+            if(isDBvalid){
+                localStorage.setItem("data",username)
                 window.location.href = "Dashboard.html";
 
             }
