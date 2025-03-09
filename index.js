@@ -2,7 +2,7 @@ console.log("something");
 
 import {initializeApp} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
 import {getFirestore } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
-import {collection, addDoc,setDoc,updateDoc, doc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+import {collection, addDoc,setDoc,updateDoc,getDoc, doc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
 const firebaseApp = initializeApp(
     {
@@ -63,6 +63,7 @@ catch(error){
 }
     */
 
+const docData = await getDoc(doc(database, "systemDB", "Users"));
 
 
 

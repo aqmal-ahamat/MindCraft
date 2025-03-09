@@ -18,12 +18,12 @@
             <p id="heading">Register</p>
             <article>
             <form action="">
-                <input type="text" class="input"name="username" placeholder="Username" required>
-                <input type="password" class="input"name="password" placeholder="Password" required>
-                <input type="password" class="input"name="confirmpassword" placeholder="Confirm Password" required>
+                <input type="text" class="input"name="username" placeholder="Username" id="username" required>
+                <input type="password" class="input"name="password" placeholder="Password" id="p" required>
+                <input type="password" class="input"name="confirmpassword" placeholder="Confirm Password" id="confp" required>
+                <p id="error"></p>
                 
-                
-                <input type="submit" id="submit" value="Register">
+                <input  id="submit" value="Register">
             </form>
             <article id="bottom-text">
                 <label>Already a user?  </label>
@@ -36,5 +36,6 @@
         </article>
 
     </section>
+    <script type= "module" src="register.js"></script>
 </body>
 </html>
