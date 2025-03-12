@@ -81,7 +81,27 @@ async function database_validation(uname){
 
 }
 
+//---------------------------------------------------------------------------------Create a new habits document ----------------------------------------------------------------------------------------------
+
+async function CreateHabitsDocument(username) {
+    await setDoc(doc(database,"systemDB" ,`${username}Habits`),{
+
+    })
+    
+}
+
+//---------------------------------------------------------------------------------Create a new XP document----------------------------------------------------------------------------------------------
+async function CreateXPDocument(username) {
+    await setDoc(doc(database,"systemDB" ,`${username}XP`),{
+        "level":1,
+        "levelingXP":100
+    })
+    
+}
+
+
 //---------------------------------------------------------------------------------Register User ----------------------------------------------------------------------------------------------
+
 async function registeruser(uname,password){
 
         
@@ -90,11 +110,10 @@ async function registeruser(uname,password){
          })
 
          
-
-        
-        
-    
 }
+
+
+
 
 //---------------------------------------------------------------------------------submit funtion----------------------------------------------------------------------------------------------
 
@@ -111,6 +130,8 @@ async function submitfunc(){
         if(isNameValid){
             errorelement.textContent = "User successfully registered!"
             registeruser(username,password)
+            CreateHabitsDocument(username);
+            CreateXPDocument(username)
 
 
         }
