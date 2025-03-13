@@ -8,17 +8,40 @@
 
 }
 #statsSection{
-    height: 30vh;
+    height: calc(324/1080*100vh);
     background-color: var(--color2);
     color: var(--color6);
     display: flex;
-    flex-direction: row;
-    align-items:center ;
+    flex-direction: column;
     justify-content: center;
+    padding-left: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    
+    
+}
+#statsSection div{
+    display: flex;
+    
+    
+}
+#statsSection div div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    
 }
 #usernametxt{
-    font-size: 7vh;
-    margin-left: 2vw;
+    font-size: calc(64/1920*100vw);
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1;
+    
+}
+.statsLabels{
+    font-size: 24px;
+    font-weight: bold;
 }
 body{
     background-color: var(--color6);
@@ -51,16 +74,16 @@ body{
     
 }
 #statsSection img{
-    width: 10vh;
-    height: 10vh;
-    border: 20px;
-    border-radius: 2vh;
+    display: block;
+    width: calc(154/1920*100vw);
+    height: calc(154/1920*100vw);
+    margin-right: 2vw;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #trackersSection{
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 396px;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: 70vh;
 }
 #todayDate{
@@ -72,7 +95,7 @@ body{
     display: flex;
     flex-direction: row;
     background-color: var(--color7);
-    width: max-content;
+    
     height: 50vh;
     border-radius: 2vh;
     padding: 1vh;
@@ -82,6 +105,12 @@ body{
 #habitTrackerTitle{
     color: var(--color1);
     font-weight: bold
+}
+
+#todoList{
+    background-color: var(--color7);
+    width: 100%;
+    height: 100%;
 }
 .checkBox{
     width: 2vw;

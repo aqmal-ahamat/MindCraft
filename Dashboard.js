@@ -38,7 +38,7 @@ introElement.addEventListener("animationend",()=>{
 
 
 let htracker = document.getElementById("habitTracker");
-
+/*
 for (let i=0;i<=30;i++){// instead of hard coding , use number of days of the month
 
 
@@ -63,3 +63,4 @@ for (let i=0;i<=30;i++){// instead of hard coding , use number of days of the mo
 }
 
 
+*/
