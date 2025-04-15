@@ -1,9 +1,16 @@
-let username = localStorage.getItem("data")
+let pasedData = localStorage.getItem("data")
+let indexofcomma = Number(pasedData.indexOf(","))
+let username = pasedData.slice(0,indexofcomma)
+let checkBoxStatus = pasedData.slice(indexofcomma+1)
+
+if ( checkBoxStatus=='false'){
+    localStorage.clear();
+}
+
 document.getElementById("usernametxt").textContent = username;// Display the username
 let date = new Date();
 document.getElementById("todayDate").textContent =  `${date.getDate()} - ${date.getMonth()+1} - ${date.getFullYear()}`// display the date
 // TODO  - clear the local storage only if the user is navigating to a different page
-
 // -----------------------------------------------setting up firebase ---------------------------------------------------------------------------------------------------
 
 import {initializeApp} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";

@@ -1,9 +1,16 @@
-console.log("something");
 
 const usernamefield = document.getElementById("username");
 const passwordfield = document.getElementById("password");
 const loginbutton = document.getElementById("submit");
 const errortext = document.getElementById("error");
+const checkBox = document.getElementById('checkbox');
+
+// ----------------------------------------------- Remember me function ---------------------------------------------------------------------------------------------------
+
+
+if (Boolean(localStorage.getItem("data"))){
+    window.location.href = "Dashboard.html";
+}
 
 // -----------------------------------------------Variables---------------------------------------------------------------------------------------------------
 let username
@@ -13,6 +20,8 @@ let isDBvalid
 
 
 // -----------------------------------------------setting up firebase ---------------------------------------------------------------------------------------------------
+
+
 
 import {initializeApp} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
 import {getFirestore } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
@@ -32,6 +41,12 @@ const firebaseApp = initializeApp(
 
 const database = getFirestore(firebaseApp);
 
+
+
+loginbutton.addEventListener("click", function(event){
+    event.preventDefault()
+    loginfunction()
+})
 // -----------------------------------------------input validation ---------------------------------------------------------------------------------------------------
 function inputvalidaion(username, password){
     if (username == "" || password == ""){
@@ -81,21 +96,19 @@ async function loginfunction(){
         await database_validation(username, password)
             if(isDBvalid){
                 console.log("working")
-                localStorage.setItem("data",username)
+                
+                localStorage.setItem("data",[username,checkBox.checked])
                 window.location.href = "Dashboard.html";
 
             }
     }
+    
 
 
 }
 
 
 
-loginbutton.addEventListener("click", function(event){
-    event.preventDefault()
-    loginfunction()
-})
 
 
 
@@ -158,7 +171,6 @@ catch(error){
 }
     */
 
-const docData = await getDoc(doc(database, "systemDB", "Users"));
 
 
 
